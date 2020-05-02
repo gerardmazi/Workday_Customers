@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 time_stamp = pd.to_datetime('2020-04-30')
 
 userid = 'gerard.mazi@gmail.com'
-password = 'Geruci0203'
+password = ''
 '=============================================================='
 
 driver = webdriver.Chrome(r"chromedriver.exe")
