@@ -16,15 +16,17 @@ import time
 import re
 import matplotlib.pyplot as plt
 
-
+wday = pd.read_pickle('wday_store.pkl')
 
 '=============================================================='
-
-time_stamp = pd.to_datetime('2020-04-30')
+# Inputs
+time_stamp = pd.to_datetime('2020-05-03')
 
 userid = 'gerard.mazi@gmail.com'
 password = ''
 '=============================================================='
+# Open browser and long in
+#def LogIn():
 
 driver = webdriver.Chrome(r"chromedriver.exe")
 
@@ -46,7 +48,7 @@ wday_temp = pd.DataFrame({'Date': [], 'Comp': [], 'Test': []})
 # Go to company and jobs
 for c in range(len(comps)):
 
-    driver.get(comps[9][0])
+    driver.get(comps[c][0])
     time.sleep(3)
 
     # Company name
@@ -84,24 +86,11 @@ for c in range(len(comps)):
 
     wday_temp = pd.concat([wday_temp, temp], ignore_index=True)
 
+wday = pd.concat([wday, wday_temp], ignore_index=True)
+wday.to_pickle('wday_store.pkl')
 
 
 
-
-
-
-
-
-
-
-
-#######################################################################################################################
-# Convert to integer
-role_temp['Count'] = role_temp['Count'].str.replace(',', '').astype(int)
-
-# Append to stored jobs
-roles = pd.concat([roles, role_temp], axis=0, ignore_index=True)
-roles.to_pickle('store_roles.pkl')
 
 #######################################################################################################################
 # ANALYTICS
