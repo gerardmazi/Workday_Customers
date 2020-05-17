@@ -20,7 +20,7 @@ wday = pd.read_pickle('wday_store.pkl')
 
 '=============================================================='
 # Inputs
-time_stamp = pd.to_datetime('2020-05-03')
+time_stamp = pd.to_datetime('2020-05-16')
 
 userid = 'gerard.mazi@gmail.com'
 password = ''
@@ -88,8 +88,6 @@ for c in range(len(comps)):
 
 wday = pd.concat([wday, wday_temp], ignore_index=True)
 wday.to_pickle('wday_store.pkl')
-
-
 
 
 #######################################################################################################################
