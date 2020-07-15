@@ -20,7 +20,7 @@ wday = pd.read_pickle('wday_store.pkl')
 
 '=============================================================='
 # Inputs
-time_stamp = pd.to_datetime('2020-05-16')
+time_stamp = pd.to_datetime('2020-07-14')
 
 userid = 'gerard.mazi@gmail.com'
 password = ''
@@ -48,7 +48,7 @@ wday_temp = pd.DataFrame({'Date': [], 'Comp': [], 'Test': []})
 # Go to company and jobs
 for c in range(len(comps)):
 
-    driver.get(comps[c][0])
+    driver.get(comps[23][0])
     time.sleep(3)
 
     # Company name
@@ -56,11 +56,11 @@ for c in range(len(comps)):
 
     try:
         # Open a role
-        driver.find_element_by_xpath('//*[@class="artdeco-carousel ember-view"]/div[2]/ul/li[2]').click()
+        driver.find_element_by_xpath('//*[@class="artdeco-carousel ember-view"]/div[2]/ul/li[1]').click()
         time.sleep(3)
 
         # Click on apply
-        driver.find_element_by_xpath('//*[@class="jobs-apply-button--top-card ember-view"]').click()
+        driver.find_element_by_xpath('//*[@class="jobs-s-apply"]').click()
         time.sleep(7)
 
         # Switch to the new tab opened
@@ -69,7 +69,7 @@ for c in range(len(comps)):
 
         # Get Workday footer
         try:
-            t_test = driver.find_element_by_xpath('//*[@class="gwt-HTML WJ2P"]').text
+            t_test = driver.find_element_by_xpath('//*[@title="© 2020 Workday, Inc. All rights reserved."]').text
         except:
             t_test = ''
 
