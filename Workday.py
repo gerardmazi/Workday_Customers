@@ -23,7 +23,7 @@ wday = pd.read_pickle('wday_store.pkl')
 time_stamp = pd.to_datetime('2020-07-14')
 
 userid = 'gerard.mazi@gmail.com'
-password = ''
+password = 'Geruci0203'
 '=============================================================='
 # Open browser and long in
 #def LogIn():
@@ -43,12 +43,12 @@ time.sleep(3)
 #######################################################################################################################
 
 comps = pd.read_csv('in_Comp.csv').values.tolist()
-wday_temp = pd.DataFrame({'Date': [], 'Comp': [], 'Test': []})
+#wday_temp = pd.DataFrame({'Date': [], 'Comp': [], 'Test': []})
 
 # Go to company and jobs
 for c in range(len(comps)):
 
-    driver.get(comps[23][0])
+    driver.get(comps[c][0])
     time.sleep(3)
 
     # Company name
@@ -89,7 +89,14 @@ for c in range(len(comps)):
 wday = pd.concat([wday, wday_temp], ignore_index=True)
 wday.to_pickle('wday_store.pkl')
 
+######################################################################################################################
+marker = '© 2020 Workday, Inc. All rights reserved.'
+wday.loc[(wday.Date == '2020-05-03') & (wday.Comp == 'F5 Networks'), 'Comp'] = 'F5'
 
+wday = pd.concat([wday, pd.DataFrame({'Date': [time_stamp], 'Comp': ['F5'], 'Test': [marker]})], ignore_index=True)
+banks.to_csv('out_banks.csv', index=False)
+
+banks = pd.read_pickle('wday_bank_store.pkl')
 #######################################################################################################################
 # ANALYTICS
 
