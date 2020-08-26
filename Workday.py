@@ -23,7 +23,7 @@ wday = pd.read_pickle('wday_store.pkl')
 time_stamp = pd.to_datetime('2020-07-14')
 
 userid = 'gerard.mazi@gmail.com'
-password = 'Geruci0203'
+password = ''
 '=============================================================='
 # Open browser and long in
 #def LogIn():
